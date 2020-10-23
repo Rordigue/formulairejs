@@ -7,30 +7,40 @@ form.addEventListener("submit", function (e) {
     const movie = form.elements.movie.value;
     const director = form.elements.director.value;
     const release_year = form.elements.release_year.value;
+    let count = 0;
 
-    // Déterminer si les champs sont vides
+    // Vérifier si l'input movie est rempli
     if (movie == ''){
         const helpMovie = document.getElementById('helpMovie');
         helpMovie.textContent = "Veuillez remplir ce champ.";
         helpMovie.style.color = "red";
+        count += 1
     }
+    // Vérifier si l'input director est rempli
     if(director == '') {
         const helpDirector = document.getElementById('helpDirector');
         helpDirector.textContent = "Veuillez remplir ce champ.";
         helpDirector.style.color = "red";
+        count += 1
     }
+    // Vérifier si l'input year est rempli
     if(release_year == '' ) {
         const helpYear = document.getElementById('helpYear');
         helpYear.textContent = "Veuillez remplir ce champ.";
         helpYear.style.color = "red";
+        count += 1
     }
-    // Vérifier si l'année de sortie est valide
-    if(release_year <= 1895 && release_year >= 2020){
-        const helpYear = document.getElementById('helpYear');
-        helpYear.textContent = "Veuillez rentrer une année entre 1895 et 2020.";
-        helpYear.style.color = "red";
+    // // Vérifier si l'année de sortie est valide
+    
+    // if(release_year >= 1895 && release_year <= 2020 == true){
+    //     const helpYear = document.getElementById('helpYear');
+    //     helpYear.textContent = "Veuillez rentrer une année entre 1895 et 2020.";
+    //     helpYear.style.color = "red";
+    //     count += 1
+    // }
 
-    }else{
+    // Afficher les données si tout est correct
+    if(count == 0){
         const result = document.getElementById('result');
         result.textContent = "Votre film préféré est " + movie + " réalisé par " + director + " en " + release_year + "."
     }
