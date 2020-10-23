@@ -10,19 +10,26 @@
     <main class="container">
         <form>
             <div class="form-group">
-              <label for="movie">Film préféré</label>
-              <input type="text" class="form-control" id="movie" name="movie">
+                <label for="movie">Film préféré</label>
+                <input type="text" class="form-control" id="movie" name="movie">
+                <small id="helpMovie"></small>
             </div>
             <div class="form-group">
-              <label for="director">Réalisateur</label>
-              <input type="text" class="form-control" id="director" name="director">
+                <label for="director">Réalisateur</label>
+                <input type="text" class="form-control" id="director" name="director">
+                <small id="helpDirector"></small>
             </div>
             <div class="form-group">
-                <label for="realease_year">Année de sortie</label>
-                <input type="number" class="form-control" id="realease_year" name="realease_year">
+                <label for="release_year">Année de sortie</label>
+                <input type="number" class="form-control" id="release_year" name="release_year" placeholder="YYYY" min="1895" max="2020">
+                <small id="helpYear"></small>
             </div>
             <button type="submit" class="btn btn-primary">Envoyer</button>
         </form>
+
+        <div class="container">
+            <span id="result"></span>
+        </div>
     </main>
 </body>
 <script src="js/main.js"></script>

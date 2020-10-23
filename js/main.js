@@ -6,14 +6,33 @@ var form = document.querySelector("form"); // Récupération de l'élément <for
 form.addEventListener("submit", function (e) {
     const movie = form.elements.movie.value;
     const director = form.elements.director.value;
-    const realease_year = form.elements.realease_year.value;
+    const release_year = form.elements.release_year.value;
 
-    if (movie == '' || director == '' || realease_year == ''){ // Déterminer si les champs du formulaires sont vides
-        alert('Veuillez remplir tout les champs du formulaire.')
+    // Déterminer si les champs sont vides
+    if (movie == ''){
+        const helpMovie = document.getElementById('helpMovie');
+        helpMovie.textContent = "Veuillez remplir ce champ.";
+        helpMovie.style.color = "red";
+    }
+    if(director == '') {
+        const helpDirector = document.getElementById('helpDirector');
+        helpDirector.textContent = "Veuillez remplir ce champ.";
+        helpDirector.style.color = "red";
+    }
+    if(release_year == '' ) {
+        const helpYear = document.getElementById('helpYear');
+        helpYear.textContent = "Veuillez remplir ce champ.";
+        helpYear.style.color = "red";
+    }
+    // Vérifier si l'année de sortie est valide
+    if(release_year <= 1895 && release_year >= 2020){
+        const helpYear = document.getElementById('helpYear');
+        helpYear.textContent = "Veuillez rentrer une année entre 1895 et 2020.";
+        helpYear.style.color = "red";
+
     }else{
-        console.log("Votre film préféré est " + movie + ", réalisé par " +
-        director + " et sorti en  " + realease_year);
-        alert('Vos données ont bien étés envoyées !')
+        const result = document.getElementById('result');
+        result.textContent = "Votre film préféré est " + movie + " réalisé par " + director + " en " + release_year + "."
     }
     e.preventDefault(); // Annulation de l'envoi des données
 });
